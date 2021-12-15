@@ -219,7 +219,7 @@ def main():
 +"/version.txt", "r")
             local_data = json.load(f)
             git_data = requests.get(
-                "https://Brankhos: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@raw.githubusercontent.com/Brankhos/latest-3/main/version.txt").json()
+                "https://Brankhos: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@raw.githubusercontent.com/Brankhos/coin_mate/main/version.txt").json()
             if local_data["Version"] < git_data["Version"]:
                 print("Günvelleme uygulanıyor")
                 sys.exit()
