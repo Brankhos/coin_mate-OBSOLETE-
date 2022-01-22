@@ -16,24 +16,11 @@ def get_processor_name():
                 return re.sub(".*model name.*:", "", line, 1)
     return ""
 
-
-import subprocess
-import sys
-
-
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-
 loca = os.path.join(os.path.dirname(__file__))
 
 if "Intell" in get_processor_name():
-    file1 = open(loca + '\mrequ-i.txt', 'r')
-    Lines = file1.readlines()
-    for line in Lines:
-        install("{}".format(line.strip()))
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", loca + '\mrequ-i.txt'])
+
 else:
-    file1 = open(loca + '\mrequ-a.txt', 'r')
-    Lines = file1.readlines()
-    for line in Lines:
-        install("{}".format(line.strip()))
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", loca + '\mrequ-a.txt'])
+
